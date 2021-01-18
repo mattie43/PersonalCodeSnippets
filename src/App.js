@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import styled from "styled-components";
+import { BrowserRouter, Route } from "react-router-dom";
 
-function App() {
+import Home from "./components/Home";
+import Navbar from "./components/Navbar";
+
+export default function App() {
+  const [darkMode, setDarkMode] = useState(true);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container darkMode={darkMode}>
+      <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
+      <BrowserRouter>
+        <Route exact path="/" component={Home} />
+      </BrowserRouter>
+    </Container>
   );
 }
 
-export default App;
+const Container = styled.div`
+  display: flex;
+  min-height: 100vh;
+  min-width: 100%;
+  color: ${(p) => (p.darkMode ? "#eee" : "#222831")};
+`;
