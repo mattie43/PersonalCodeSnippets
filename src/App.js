@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
-import { Route, Switch } from "react-router-dom";
+import { Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
@@ -21,6 +21,6 @@ const Container = styled.div`
   display: flex;
   min-height: 100vh;
   min-width: 100%;
-  color: ${(p) => (p.darkMode ? "#222831" : "#eee")};
-  background-color: ${(p) => (p.darkMode ? "#eee" : "#222831")};
+  color: ${(p) => (p.darkMode ? "#eee" : "#222831")};
+  background-color: ${(p) => (p.darkMode ? "#222831" : "#eee")};
 `;

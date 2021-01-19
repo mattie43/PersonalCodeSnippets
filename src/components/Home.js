@@ -19,5 +19,7 @@ const Container = styled.div`
 `;
 
 const Body = styled.p`
-  font-size: 20px;
+  font-size: 30px;
+  padding: 5vw;
+  text-align: justify;
 `;

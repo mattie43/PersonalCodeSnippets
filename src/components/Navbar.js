@@ -3,10 +3,10 @@ import Switch from "react-switch";
 import { NavLink } from "react-router-dom";
 import { FaMoon, FaSun } from "react-icons/fa";
 
-export default function Home(props) {
+export default function Navbar(props) {
   return (
     <Container darkMode={props.darkMode}>
-      <div id="switch-container">
+      <SwitchContainer>
         <NavLink id="home" exact to="/" activeClassName="selected">
           Home
         </NavLink>
@@ -15,11 +15,12 @@ export default function Home(props) {
           handleDiameter={22}
           uncheckedIcon={<FaMoon id="moon-icon" color="#eee" />}
           checkedIcon={<FaSun id="sun-icon" color="#f9d71c" />}
-          onColor="#576375"
+          offColor="#576375"
+          onColor="#888"
           onChange={() => props.setDarkMode(!props.darkMode)}
           checked={props.darkMode}
         />
-      </div>
+      </SwitchContainer>
       <ul>
         <li>
           <NavLink to="/calculator" activeClassName="selected">
@@ -33,7 +34,7 @@ export default function Home(props) {
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: ${(p) => (p.darkMode ? "#a6e3e9" : "#607d8b")};
+  background-color: ${(p) => (p.darkMode ? "#607d8b" : "#a6e3e9")};
   width: 15vw;
   & ul {
     list-style: none;
@@ -48,7 +49,7 @@ const Container = styled.div`
     text-decoration: none;
   }
   & .selected {
-    color: #16c79a;
+    color: ${(p) => (p.darkMode ? "#16c79a" : "#F78E69")};
   }
   & #sun-icon {
     margin-left: 6px;
@@ -56,14 +57,14 @@ const Container = styled.div`
   & #moon-icon {
     margin-left: 3px;
   }
-  & #switch-container {
-    /* align-self: flex-end; */
-    display: flex;
-    justify-content: space-around;
-    margin-top: 10px;
-    align-items: center;
-    & #home {
-      margin-top: 5px;
-    }
+`;
+
+const SwitchContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+  align-items: center;
+  & #home {
+    margin-top: 5px;
   }
 `;
