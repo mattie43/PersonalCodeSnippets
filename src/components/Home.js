@@ -1,10 +1,23 @@
 import styled from "styled-components";
 
 export default function Home() {
-  return <Container>Home test</Container>;
+  return (
+    <Container>
+      <Body>
+        This is where I'm going to be keeping my own code snippets/little
+        projects. I'll be trying to add a new project each day.
+      </Body>
+    </Container>
+  );
 }
 const Container = styled.div`
   display: flex;
-  background-color: #393e46;
+  background-color: inherit;
   width: 100%;
+  align-items: center;
+  justify-content: center;
+`;
+
+const Body = styled.p`
+  font-size: 20px;
 `;
