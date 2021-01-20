@@ -2,29 +2,42 @@ import { useState } from "react";
 import styled from "styled-components";
 
 export default function Calculator() {
-  const [value, setValue] = useState("0");
+  const [value, setValue] = useState([]);
+
+  function handleClick(num) {
+    if (num === "±") {
+      if (value[0] && value[0] === "-") {
+        setValue(value.slice(1));
+      } else {
+        setValue(["-", ...value]);
+      }
+    } else {
+      setValue([...value, num]);
+    }
+  }
+
   return (
     <Container>
       <Body>
         <label>{value}</label>
-        <button>AC</button>
-        <button>±</button>
-        <button>%</button>
-        <button>÷</button>
-        <button onClick={() => setValue("7")}>7</button>
-        <button>8</button>
-        <button>9</button>
-        <button>X</button>
-        <button>4</button>
-        <button>5</button>
-        <button>6</button>
-        <button>-</button>
-        <button>1</button>
-        <button>2</button>
-        <button>3</button>
-        <button>+</button>
+        <button onClick={() => setValue([])}>AC</button>
+        <button onClick={() => handleClick("±")}>±</button>
+        <button onClick={() => handleClick("%")}>%</button>
+        <button onClick={() => handleClick("÷")}>÷</button>
+        <button onClick={() => handleClick(7)}>7</button>
+        <button onClick={() => handleClick(8)}>8</button>
+        <button onClick={() => handleClick(9)}>9</button>
+        <button onClick={() => handleClick("x")}>x</button>
+        <button onClick={() => handleClick(4)}>4</button>
+        <button onClick={() => handleClick(5)}>5</button>
+        <button onClick={() => handleClick(6)}>6</button>
+        <button onClick={() => handleClick("-")}>-</button>
+        <button onClick={() => handleClick(1)}>1</button>
+        <button onClick={() => handleClick(2)}>2</button>
+        <button onClick={() => handleClick(3)}>3</button>
+        <button onClick={() => handleClick("+")}>+</button>
         <button id="calc-0">0</button>
-        <button>.</button>
+        <button onClick={() => handleClick(".")}>.</button>
         <button>=</button>
       </Body>
     </Container>
