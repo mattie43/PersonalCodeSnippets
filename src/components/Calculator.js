@@ -5,14 +5,18 @@ export default function Calculator() {
   const [value, setValue] = useState([]);
 
   function handleClick(num) {
-    if (num === "±") {
-      if (value[0] && value[0] === "-") {
-        setValue(value.slice(1));
-      } else {
-        setValue(["-", ...value]);
-      }
-    } else {
-      setValue([...value, num]);
+    switch (num) {
+      case "±":
+        if (value[0] && value[0] === "-") {
+          setValue(value.slice(1));
+        } else {
+          setValue(["-", ...value]);
+        }
+        break;
+
+      default:
+        setValue([...value, num]);
+        break;
     }
   }
 
