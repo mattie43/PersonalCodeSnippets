@@ -27,6 +27,11 @@ export default function Navbar(props) {
             Calculator
           </NavLink>
         </li>
+        <li>
+          <NavLink to="/todo" activeClassName="selected">
+            To-do List
+          </NavLink>
+        </li>
       </ul>
     </Container>
   );
