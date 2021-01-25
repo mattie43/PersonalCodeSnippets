@@ -8,8 +8,20 @@ export default function ToDo() {
   const [input, setInput] = useState("");
 
   function renderItems() {
-    return toDoList.map((item) => <li>{item}</li>);
+    return toDoList.map((item) => (
+      <li onClick={() => removeItem(item)}>{item}</li>
+    ));
   }
+
+  function handleClick() {
+    setToDoList([...toDoList, input]);
+    setInput("");
+  }
+
+  function removeItem(clickedItem) {
+    setToDoList(toDoList.filter((item) => item !== clickedItem));
+  }
+
   return (
     <Container>
       <Body>
@@ -19,7 +31,7 @@ export default function ToDo() {
             value={input}
             onChange={(e) => setInput(e.target.value)}
           />
-          <button>Add Item</button>
+          <button onClick={handleClick}>Add Item</button>
         </InputSection>
         <ListSection>
           <ul>{renderItems()}</ul>
@@ -66,5 +78,8 @@ const ListSection = styled.div`
     list-style: none;
     color: black;
     font-size: 25px;
+  }
+  & li {
+    cursor: pointer;
   }
 `;
