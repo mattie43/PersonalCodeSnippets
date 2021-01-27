@@ -57,6 +57,7 @@ const InputSection = styled.div`
   display: flex;
   flex-direction: column;
   margin: 20px;
+  align-self: center;
   & input {
     outline: none;
     font-size: 25px;
@@ -64,6 +65,8 @@ const InputSection = styled.div`
   & button {
     height: 40px;
     margin: 20px;
+    background-color: #607d8b;
+    border: none;
   }
 `;
 
