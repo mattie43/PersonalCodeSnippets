@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import Calculator from "./components/Calculator";
 import ToDo from "./components/ToDo";
+import Weather from "./components/Weather";
 
 export default function App() {
   const [darkMode, setDarkMode] = useState(true);
@@ -15,6 +16,7 @@ export default function App() {
       <Route exact path="/" component={Home} />
       <Route path="/calculator" component={Calculator} />
       <Route path="/todo" component={ToDo} />
+      <Route path="/weather" component={Weather} />
     </Container>
   );
 }

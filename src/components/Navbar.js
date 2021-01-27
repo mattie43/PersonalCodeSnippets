@@ -4,6 +4,19 @@ import { NavLink } from "react-router-dom";
 import { FaMoon, FaSun } from "react-icons/fa";
 
 export default function Navbar(props) {
+  function renderNavs() {
+    return [
+      { name: "Calculator", link: "/calculator" },
+      { name: "To-do List", link: "/todo" },
+      { name: "Small Weather App", link: "/weather" },
+    ].map((nav) => (
+      <li key={nav.name}>
+        <NavLink to={nav.link} activeClassName="selected">
+          {nav.name}
+        </NavLink>
+      </li>
+    ));
+  }
   return (
     <Container darkMode={props.darkMode}>
       <SwitchContainer>
@@ -21,18 +34,7 @@ export default function Navbar(props) {
           checked={props.darkMode}
         />
       </SwitchContainer>
-      <ul>
-        <li>
-          <NavLink to="/calculator" activeClassName="selected">
-            Calculator
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/todo" activeClassName="selected">
-            To-do List
-          </NavLink>
-        </li>
-      </ul>
+      <ul>{renderNavs()}</ul>
     </Container>
   );
 }
