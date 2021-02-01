@@ -10,6 +10,8 @@ import Weather from "./components/Weather";
 
 export default function App() {
   const [darkMode, setDarkMode] = useState(true);
+  // check out useDarkMode hook
+  // useLocalStorage and useMediaQuery
   return (
     <Container darkMode={darkMode}>
       <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
