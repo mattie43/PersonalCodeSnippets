@@ -22,6 +22,15 @@ export default function Weather() {
     // .then((data) => console.log(data));
   }
 
+  function getIcon(abbr) {
+    return (
+      <img
+        src={`https://www.metaweather.com/static/img/weather/${abbr}.svg`}
+        alt=""
+      />
+    );
+  }
+
   function fetchWeather(woeid) {
     fetch(proxyURL + `https://www.metaweather.com/api/location/${woeid}/`)
       .then((resp) => resp.json())
@@ -42,11 +51,13 @@ export default function Weather() {
       return;
     } else {
       return weatherInfo.consolidated_weather.map((day) => (
-        <li key={day.applicable_date}>
+        <div id="single-weather" key={day.applicable_date}>
           {day.applicable_date}
+          {getIcon(day.weather_state_abbr)}
           {day.weather_state_name}
-          {day.the_temp}
-        </li>
+          <br />
+          {Math.round((day.the_temp * 9) / 5 + 32)}°F
+        </div>
       ));
     }
   }
@@ -54,7 +65,7 @@ export default function Weather() {
   return (
     <Container>
       <Body>
-        <ul>{renderWeatherInfo()}</ul>
+        <WeatherContainer>{renderWeatherInfo()}</WeatherContainer>
         <input
           type="text"
           value={search}
@@ -91,5 +102,18 @@ const Body = styled.div`
     list-style: none;
     font-size: 20px;
     cursor: pointer;
+  }
+`;
+
+const WeatherContainer = styled.div`
+  display: flex;
+  & img {
+    height: 50px;
+  }
+  & #single-weather {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* margin: 10px; */
   }
 `;
