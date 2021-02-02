@@ -52,7 +52,7 @@ export default function Weather() {
     } else {
       return weatherInfo.consolidated_weather.map((day) => (
         <div id="single-weather" key={day.applicable_date}>
-          {day.applicable_date}
+          {dateConversion(day.applicable_date)}
           {getIcon(day.weather_state_abbr)}
           {day.weather_state_name}
           <br />
@@ -60,6 +60,17 @@ export default function Weather() {
         </div>
       ));
     }
+  }
+
+  function dateConversion(date) {
+    const options = {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    };
+    const event = new Date(date);
+    return event.toLocaleDateString(undefined, options);
   }
 
   return (
@@ -88,15 +99,18 @@ const Container = styled.div`
 const Body = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   & input {
     outline: none;
     font-size: 25px;
+    width: 50%;
   }
   & button {
     outline: none;
     font-size: 20px;
     padding: 10px;
     margin: 10px;
+    width: 50%;
   }
   & ul {
     list-style: none;
@@ -114,6 +128,7 @@ const WeatherContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* margin: 10px; */
+    text-align: center;
+    margin: 10px;
   }
 `;
