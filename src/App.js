@@ -7,6 +7,7 @@ import Home from "./components/Home";
 import Calculator from "./components/Calculator";
 import ToDo from "./components/ToDo";
 import Weather from "./components/Weather";
+import Quote from "./components/QuoteGenerator";
 
 export default function App() {
   const [darkMode, setDarkMode] = useState(true);
@@ -19,6 +20,7 @@ export default function App() {
       <Route path="/calculator" component={Calculator} />
       <Route path="/todo" component={ToDo} />
       <Route path="/weather" component={Weather} />
+      <Route path="/weather" component={Quote} />
     </Container>
   );
 }
