@@ -103,14 +103,14 @@ const Body = styled.div`
   & input {
     outline: none;
     font-size: 25px;
-    width: 50%;
+    width: 450px;
   }
   & button {
     outline: none;
     font-size: 20px;
     padding: 10px;
     margin: 10px;
-    width: 50%;
+    width: 450px;
   }
   & ul {
     list-style: none;
