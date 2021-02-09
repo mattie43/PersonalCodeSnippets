@@ -9,6 +9,7 @@ export default function Navbar(props) {
       { name: "Calculator", link: "/calculator" },
       { name: "To-do List", link: "/todo" },
       { name: "Small Weather App", link: "/weather" },
+      { name: "Quote Generator", link: "/quote" },
     ].map((nav) => (
       <li key={nav.name}>
         <NavLink to={nav.link} activeClassName="selected">

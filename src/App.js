@@ -20,7 +20,7 @@ export default function App() {
       <Route path="/calculator" component={Calculator} />
       <Route path="/todo" component={ToDo} />
       <Route path="/weather" component={Weather} />
-      <Route path="/weather" component={Quote} />
+      <Route path="/quote" component={Quote} />
     </Container>
   );
 }
