@@ -24,9 +24,9 @@ export default function Calculator() {
     <Container>
       <Body>
         <label>{value}</label>
-        <button onClick={() => setValue([])}>AC</button>
-        <button onClick={() => handleClick("±")}>±</button>
-        <button onClick={() => handleClick("%")}>%</button>
+        <button id="calc-clear" onClick={() => setValue([])}>
+          Clear
+        </button>
         <button onClick={() => handleClick("÷")}>÷</button>
         <button onClick={() => handleClick(7)}>7</button>
         <button onClick={() => handleClick(8)}>8</button>
@@ -93,5 +93,8 @@ const Body = styled.div`
   }
   & #calc-0 {
     width: 122px;
+  }
+  & #calc-clear {
+    width: 184px;
   }
 `;
