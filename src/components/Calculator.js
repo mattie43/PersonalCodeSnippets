@@ -41,7 +41,6 @@ export default function Calculator() {
         <button onClick={() => handleClick(3)}>3</button>
         <button onClick={() => handleClick("+")}>+</button>
         <button id="calc-0">0</button>
-        <button onClick={() => handleClick(".")}>.</button>
         <button>=</button>
       </Body>
     </Container>
@@ -91,10 +90,8 @@ const Body = styled.div`
       cursor: pointer;
     }
   }
-  & #calc-0 {
-    width: 122px;
-  }
-  & #calc-clear {
+  & #calc-0,
+  #calc-clear {
     width: 184px;
   }
 `;
